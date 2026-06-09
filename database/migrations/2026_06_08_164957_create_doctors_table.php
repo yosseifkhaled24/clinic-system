@@ -19,7 +19,9 @@ return new class extends Migration
         $table->string('phone');
         $table->string('image')->nullable();
         $table->text('bio')->nullable();
+        $table->boolean('allow_reviews')->default(true);
         $table->timestamps();
+        
     });
 }
     /**

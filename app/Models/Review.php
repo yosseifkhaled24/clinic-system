@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Appointment extends Model
+class Review extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
         'doctor_id',
-        'appointment_date',
-        'status',
-        'notes'
+        'appointment_id',
+        'rating',
+        'comment',
     ];
 
     public function user()
@@ -27,8 +26,9 @@ class Appointment extends Model
     {
         return $this->belongsTo(Doctor::class);
     }
-    public function review()
-{
-  return $this->hasOne(\App\Models\Review::class);
-}
+
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class);
+    }
 }
